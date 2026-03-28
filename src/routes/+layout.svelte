@@ -19,6 +19,14 @@
 		}
 	}
 
+	function atScrollBoundary(direction: 1 | -1): boolean {
+		const el = document.scrollingElement ?? document.documentElement;
+		if (direction > 0) {
+			return el.scrollTop + el.clientHeight >= el.scrollHeight - 5;
+		}
+		return el.scrollTop <= 5;
+	}
+
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
 			e.preventDefault();
@@ -31,7 +39,10 @@
 
 	function handleWheel(e: WheelEvent) {
 		if (Math.abs(e.deltaY) < 30) return;
-		navigate(e.deltaY > 0 ? 1 : -1);
+		const direction: 1 | -1 = e.deltaY > 0 ? 1 : -1;
+		if (atScrollBoundary(direction)) {
+			navigate(direction);
+		}
 	}
 
 	function handleTouchStart(e: TouchEvent) {
@@ -41,7 +52,10 @@
 	function handleTouchEnd(e: TouchEvent) {
 		const deltaY = touchStartY - e.changedTouches[0].clientY;
 		if (Math.abs(deltaY) < 50) return;
-		navigate(deltaY > 0 ? 1 : -1);
+		const direction: 1 | -1 = deltaY > 0 ? 1 : -1;
+		if (atScrollBoundary(direction)) {
+			navigate(direction);
+		}
 	}
 </script>
 
