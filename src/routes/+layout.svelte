@@ -49,7 +49,7 @@
 	{/each}
 </nav>
 
-<div class="fixed bottom-6 left-0 z-50 flex w-full items-center justify-between px-5 md:px-8">
+<div class="fixed left-0 z-50 flex w-full items-center justify-between px-5 md:px-8" style="bottom: 15dvh">
 	<button
 		onclick={() => navigate(-1)}
 		disabled={!hasPrev}
