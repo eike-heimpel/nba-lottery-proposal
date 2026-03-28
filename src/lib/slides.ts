@@ -9,5 +9,6 @@ export const slides = [
 	{ path: '/incentives', label: 'Incentives' },
 	{ path: '/objections', label: 'Objections' },
 	{ path: '/summary', label: 'Summary' },
-	{ path: '/appendix', label: 'Appendix' }
+	{ path: '/appendix', label: 'Appendix' },
+	{ path: '/adaptations', label: 'Adaptations' }
 ];
