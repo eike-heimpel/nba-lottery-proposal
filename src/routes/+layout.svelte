@@ -30,7 +30,7 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<nav class="fixed right-20 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-2.5 md:flex">
+<nav class="fixed right-20 z-50 hidden -translate-y-1/2 flex-col gap-2.5 md:flex" style="top: 50dvh">
 	{#each slides as slide}
 		<a
 			href={slide.path}
@@ -49,7 +49,7 @@
 	{/each}
 </nav>
 
-<div class="fixed left-0 top-1/2 z-50 -translate-y-1/2 pl-4 md:pl-6">
+<div class="fixed left-0 z-50 -translate-y-1/2 pl-4 md:pl-6" style="top: 50dvh">
 	<button
 		onclick={() => navigate(-1)}
 		disabled={!hasPrev}
@@ -60,7 +60,7 @@
 	</button>
 </div>
 
-<div class="fixed right-0 top-1/2 z-50 -translate-y-1/2 pr-4 md:pr-6">
+<div class="fixed right-0 z-50 -translate-y-1/2 pr-4 md:pr-6" style="top: 50dvh">
 	<button
 		onclick={() => navigate(1)}
 		disabled={!hasNext}
