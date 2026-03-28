@@ -3,7 +3,7 @@
 	import Matchup from '$lib/components/Matchup.svelte';
 </script>
 
-<SlideLayout slideNumber="06">
+<SlideLayout slideNumber="05">
 	<div class="w-full max-w-5xl">
 		<p class="section-label mb-3">THE LOTTERY TOURNAMENT</p>
 		<h2 class="section-title mb-6">KING OF THE HILL</h2>

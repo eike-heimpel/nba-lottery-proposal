@@ -4,9 +4,9 @@
 	const timeline = [
 		{
 			num: '1',
-			timing: 'OCTOBER — APRIL · 72 GAMES',
+			timing: 'OCTOBER — APRIL',
 			title: 'Regular Season',
-			text: '10 fewer games than today. Less load management, higher intensity, every game matters more. The standings determine your tier: playoffs, play-in, or lottery tournament.'
+			text: 'The standings determine your tier: playoffs, play-in, or lottery tournament. Every game matters because your final position decides what happens next.'
 		},
 		{
 			num: '2',
@@ -29,7 +29,7 @@
 	];
 </script>
 
-<SlideLayout slideNumber="07">
+<SlideLayout slideNumber="06">
 	<div class="w-full max-w-4xl">
 		<p class="section-label mb-3">SEASON FLOW</p>
 		<h2 class="section-title mb-10">HOW THE YEAR PLAYS OUT</h2>

@@ -14,7 +14,7 @@
 			<OddsRow label="KotH — 2nd, Final loser (×2)" pct="10%" barWidth={87} emphasis="mid" />
 			<OddsRow label="KotH — 3rd (×2)" pct="8.5%" barWidth={74} emphasis="mid" />
 			<OddsRow label="KotH — 4th (×2)" pct="6.5%" barWidth={57} emphasis="low" />
-			<OddsRow label="KotH — 5th, First loser (×2)" pct="4.5%" barWidth={39} emphasis="low" />
+			<OddsRow label="KotH — 5th, First eliminated (×2)" pct="4.5%" barWidth={39} emphasis="low" />
 		</div>
 
 		<div class="mt-3 text-right font-mono text-xs text-text-dim">

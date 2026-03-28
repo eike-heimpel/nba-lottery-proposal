@@ -40,7 +40,7 @@
 	];
 </script>
 
-<SlideLayout slideNumber="08">
+<SlideLayout slideNumber="07">
 	<div class="w-full max-w-5xl">
 		<p class="section-label mb-3">INCENTIVE ANALYSIS</p>
 		<h2 class="section-title mb-10">EVERY TEAM HAS A REASON TO WIN</h2>

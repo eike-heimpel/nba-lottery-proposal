@@ -12,7 +12,7 @@
 </script>
 
 <SlideLayout
-	slideNumber="09"
+	slideNumber="08"
 	background="linear-gradient(165deg, #0a0a0f 0%, #161622 50%, #0d0d15 100%)"
 >
 	<div
