@@ -49,32 +49,28 @@
 	{/each}
 </nav>
 
-<div class="fixed left-0 z-50 -translate-y-1/2 pl-4 md:pl-6" style="top: 50dvh">
+<div class="fixed bottom-6 left-0 z-50 flex w-full items-center justify-between px-5 md:px-8">
 	<button
 		onclick={() => navigate(-1)}
 		disabled={!hasPrev}
-		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-text-dim/30 bg-transparent text-2xl text-text-dim/60 transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
+		class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-2 border-accent/50 bg-transparent text-xl text-accent/70 transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
 		aria-label="Previous slide"
 	>
 		←
 	</button>
-</div>
 
-<div class="fixed right-0 z-50 -translate-y-1/2 pr-4 md:pr-6" style="top: 50dvh">
+	<span class="font-mono text-[11px] text-text-dim/50">
+		{currentIndex + 1} / {slides.length}
+	</span>
+
 	<button
 		onclick={() => navigate(1)}
 		disabled={!hasNext}
-		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-text-dim/30 bg-transparent text-2xl text-text-dim/60 transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
+		class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-2 border-accent/50 bg-transparent text-xl text-accent/70 transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
 		aria-label="Next slide"
 	>
 		→
 	</button>
-</div>
-
-<div class="fixed bottom-3 left-1/2 z-50 -translate-x-1/2 md:hidden">
-	<span class="font-mono text-[11px] text-text-dim/60">
-		{currentIndex + 1} / {slides.length}
-	</span>
 </div>
 
 {@render children()}
