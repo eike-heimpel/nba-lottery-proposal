@@ -5,26 +5,16 @@
 	import '../app.css';
 
 	let { children } = $props();
-	let cooldown = $state(false);
-	let touchStartY = $state(0);
+
+	const currentIndex = $derived(slides.findIndex((s) => s.path === page.url.pathname));
+	const hasPrev = $derived(currentIndex > 0);
+	const hasNext = $derived(currentIndex < slides.length - 1);
 
 	function navigate(direction: 1 | -1) {
-		if (cooldown) return;
-		const currentIndex = slides.findIndex((s) => s.path === page.url.pathname);
 		const nextIndex = currentIndex + direction;
 		if (nextIndex >= 0 && nextIndex < slides.length) {
-			cooldown = true;
 			goto(slides[nextIndex].path);
-			setTimeout(() => (cooldown = false), 600);
 		}
-	}
-
-	function atScrollBoundary(direction: 1 | -1): boolean {
-		const el = document.scrollingElement ?? document.documentElement;
-		if (direction > 0) {
-			return el.scrollTop + el.clientHeight >= el.scrollHeight - 5;
-		}
-		return el.scrollTop <= 5;
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -36,37 +26,11 @@
 			navigate(-1);
 		}
 	}
-
-	function handleWheel(e: WheelEvent) {
-		if (Math.abs(e.deltaY) < 30) return;
-		const direction: 1 | -1 = e.deltaY > 0 ? 1 : -1;
-		if (atScrollBoundary(direction)) {
-			navigate(direction);
-		}
-	}
-
-	function handleTouchStart(e: TouchEvent) {
-		touchStartY = e.touches[0].clientY;
-	}
-
-	function handleTouchEnd(e: TouchEvent) {
-		const deltaY = touchStartY - e.changedTouches[0].clientY;
-		if (Math.abs(deltaY) < 50) return;
-		const direction: 1 | -1 = deltaY > 0 ? 1 : -1;
-		if (atScrollBoundary(direction)) {
-			navigate(direction);
-		}
-	}
 </script>
 
-<svelte:window
-	onkeydown={handleKeydown}
-	onwheel={handleWheel}
-	ontouchstart={handleTouchStart}
-	ontouchend={handleTouchEnd}
-/>
+<svelte:window onkeydown={handleKeydown} />
 
-<nav class="fixed right-4 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-2.5">
+<nav class="fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-2.5 md:flex">
 	{#each slides as slide}
 		<a
 			href={slide.path}
@@ -84,5 +48,29 @@
 		</a>
 	{/each}
 </nav>
+
+<div class="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-3 md:px-8">
+	<button
+		onclick={() => navigate(-1)}
+		disabled={!hasPrev}
+		class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-border bg-surface/80 font-mono text-sm text-text-dim backdrop-blur-sm transition-opacity disabled:cursor-default disabled:opacity-0"
+		aria-label="Previous slide"
+	>
+		←
+	</button>
+
+	<span class="font-mono text-[11px] text-text-dim/60 md:hidden">
+		{currentIndex + 1} / {slides.length}
+	</span>
+
+	<button
+		onclick={() => navigate(1)}
+		disabled={!hasNext}
+		class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-border bg-surface/80 font-mono text-sm text-text-dim backdrop-blur-sm transition-opacity disabled:cursor-default disabled:opacity-0"
+		aria-label="Next slide"
+	>
+		→
+	</button>
+</div>
 
 {@render children()}

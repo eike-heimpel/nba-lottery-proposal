@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import SlideLayout from '$lib/components/SlideLayout.svelte';
 </script>
 
@@ -29,11 +28,4 @@
 		</div>
 	</div>
 
-	<button
-		onclick={() => goto('/problem')}
-		class="absolute bottom-8 flex cursor-pointer flex-col items-center gap-2 border-none bg-transparent"
-	>
-		<span class="font-mono text-xs text-text-dim">Scroll to begin</span>
-		<span class="animate-bounce text-text-dim">↓</span>
-	</button>
 </SlideLayout>
