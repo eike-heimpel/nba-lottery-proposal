@@ -7,6 +7,7 @@ export const slides = [
 	{ path: '/koth', label: 'KotH' },
 	{ path: '/season', label: 'Season' },
 	{ path: '/incentives', label: 'Incentives' },
+	{ path: '/objections', label: 'Objections' },
 	{ path: '/summary', label: 'Summary' },
 	{ path: '/appendix', label: 'Appendix' }
 ];
