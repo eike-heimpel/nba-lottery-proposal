@@ -5,13 +5,17 @@
 	import '../app.css';
 
 	let { children } = $props();
-	let wheelCooldown = $state(false);
+	let cooldown = $state(false);
+	let touchStartY = $state(0);
 
 	function navigate(direction: 1 | -1) {
+		if (cooldown) return;
 		const currentIndex = slides.findIndex((s) => s.path === page.url.pathname);
 		const nextIndex = currentIndex + direction;
 		if (nextIndex >= 0 && nextIndex < slides.length) {
+			cooldown = true;
 			goto(slides[nextIndex].path);
+			setTimeout(() => (cooldown = false), 600);
 		}
 	}
 
@@ -26,16 +30,27 @@
 	}
 
 	function handleWheel(e: WheelEvent) {
-		if (wheelCooldown) return;
 		if (Math.abs(e.deltaY) < 30) return;
-
-		wheelCooldown = true;
 		navigate(e.deltaY > 0 ? 1 : -1);
-		setTimeout(() => (wheelCooldown = false), 800);
+	}
+
+	function handleTouchStart(e: TouchEvent) {
+		touchStartY = e.touches[0].clientY;
+	}
+
+	function handleTouchEnd(e: TouchEvent) {
+		const deltaY = touchStartY - e.changedTouches[0].clientY;
+		if (Math.abs(deltaY) < 50) return;
+		navigate(deltaY > 0 ? 1 : -1);
 	}
 </script>
 
-<svelte:window onkeydown={handleKeydown} onwheel={handleWheel} />
+<svelte:window
+	onkeydown={handleKeydown}
+	onwheel={handleWheel}
+	ontouchstart={handleTouchStart}
+	ontouchend={handleTouchEnd}
+/>
 
 <nav class="fixed right-4 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-2.5">
 	{#each slides as slide}
