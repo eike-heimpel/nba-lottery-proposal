@@ -53,7 +53,7 @@
 	<button
 		onclick={() => navigate(-1)}
 		disabled={!hasPrev}
-		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-none bg-transparent text-2xl text-text-dim/60 transition-all hover:text-accent disabled:cursor-default disabled:opacity-0"
+		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-text-dim/30 bg-transparent text-2xl text-text-dim/60 transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
 		aria-label="Previous slide"
 	>
 		←
@@ -64,7 +64,7 @@
 	<button
 		onclick={() => navigate(1)}
 		disabled={!hasNext}
-		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-none bg-transparent text-2xl text-text-dim/60 transition-all hover:text-accent disabled:cursor-default disabled:opacity-0"
+		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-text-dim/30 bg-transparent text-2xl text-text-dim/60 transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
 		aria-label="Next slide"
 	>
 		→
