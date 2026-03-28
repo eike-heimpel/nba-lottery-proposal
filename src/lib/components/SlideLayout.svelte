@@ -11,7 +11,7 @@
 </script>
 
 <section
-	class="relative flex min-h-full flex-col items-center px-4 py-12 md:justify-center md:px-12 md:py-16"
+	class="relative flex min-h-dvh flex-col items-center px-5 py-16 md:justify-center md:px-20 md:py-15"
 	style="background: {background}"
 >
 	<span class="slide-number">{slideNumber}</span>

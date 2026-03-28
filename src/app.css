@@ -19,14 +19,15 @@
 }
 
 @layer base {
-	html,
-	body {
+	html {
 		background-color: var(--color-bg);
 		color: var(--color-text);
 		font-family: var(--font-body);
+	}
+
+	body {
 		margin: 0;
-		height: 100dvh;
-		overflow: hidden;
+		min-height: 100dvh;
 	}
 }
 
