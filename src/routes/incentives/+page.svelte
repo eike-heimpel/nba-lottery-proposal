@@ -30,13 +30,6 @@
 			badge: 'WIN',
 			highlight: false
 		},
-		{
-			range: '10th / 11th',
-			title: 'The only soft spot',
-			text: "The sharpest edge in the system. At 10th, you're in the play-in but need to win to make playoffs, and your consolation odds are flat 4.5%. At 11th, you enter the KotH as the top seed — win 1 game and you get the best lottery odds (11.5%). But players want postseason reps, coaches want playoff records, and any GM who publicly tanks out of a playoff tournament is taking a career risk. Every system has a weakest point. This one's is narrow and socially hard to exploit.",
-			badge: 'NOTE',
-			highlight: true
-		}
 	];
 </script>
 

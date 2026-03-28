@@ -16,12 +16,6 @@
 		},
 		{
 			num: '3',
-			timing: 'LATE APRIL · DURING PLAYOFF ROUND 1',
-			title: 'Lottery Draw — Prime Time',
-			text: "Tournament results set each team's odds. The lottery balls drop during the first round of playoffs. Two spectacle events: first the tournament drama, then the lottery suspense."
-		},
-		{
-			num: '4',
 			timing: 'LATE APRIL — JUNE',
 			title: 'Playoffs',
 			text: '16 teams compete for the title. Standard format. Top seeds get a short rest during the play-in and King of the Hill window.'

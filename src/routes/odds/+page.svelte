@@ -26,7 +26,7 @@
 				<span class="font-semibold text-text-bright">The bottom line:</span> The team eliminated first
 				in the tournament has identical odds (4.5%) to a play-in loser. Being the worst team in your
 				conference and losing immediately gets you absolutely nothing extra. Tournament placement determines
-				your odds tier — then the lottery balls still drop for drama.
+				your odds tier.
 			</p>
 		</div>
 	</div>

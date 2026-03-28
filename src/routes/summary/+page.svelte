@@ -5,7 +5,6 @@
 		'<strong>Tanking is irrational</strong> at every position. In the regular season and in the tournament, winning always improves your situation.',
 		'<strong>No new rules needed.</strong> Self-enforcing incentives. No salary floors, no tanking penalties, no committee reviews.',
 		'<strong>King of the Hill</strong> turns the draft lottery into must-watch basketball — single-elimination games where bad teams play their hearts out.',
-		'<strong>Two spectacle events:</strong> the tournament for competition and drama, the lottery draw for suspense and randomness.',
 		'<strong>The dead zone is gone.</strong> Every team has meaningful basketball to play from October through April.',
 		'<strong>Bad ownership is exposed</strong>, not bailed out. Finishing last and losing game 1 earns identical odds to a play-in team.'
 	];

@@ -10,7 +10,7 @@
 		{
 			question: '"The 10th seed will tank into 11th."',
 			answer:
-				"This is the sharpest edge in the system. But no GM publicly sabotages a playoff run — it's career suicide. No player or coach wants to miss the postseason. And even at 11th, you don't get anything for free — you still have to win the KotH game. Every system has a weakest point. This one's is narrow and socially impossible to exploit."
+				"This is the biggest gap in the system, and worth being honest about. But there are real forces working against it. Players and coaches have strong incentives to make the postseason — careers are built on playoff appearances, not lottery positioning. Tanking precisely into 11th is also harder than it sounds: you're not choosing between 10th and 11th, you're risking falling to 13th or 14th, where you need multiple KotH wins instead of one. The edge is narrow but real, and this is the likeliest place where the numbers need tweaking. But even untuned, the overall system is a massive improvement over rewarding teams for losing."
 		},
 		{
 			question: '"How do bad teams actually get better?"',
