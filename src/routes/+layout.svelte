@@ -30,51 +30,60 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<nav class="fixed right-20 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-2.5 md:flex">
-	{#each slides as slide}
-		<a
-			href={slide.path}
-			class="group relative block h-2 w-2 rounded-full transition-all duration-200 {page.url
-				.pathname === slide.path
-				? 'scale-125 bg-accent'
-				: 'bg-text-dim/40 hover:bg-text-dim'}"
-			aria-label={slide.label}
-		>
-			<span
-				class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-surface-2 px-2 py-1 font-mono text-[11px] text-text-dim opacity-0 transition-opacity group-hover:opacity-100"
+<div class="flex h-dvh w-full">
+	<!-- Left nav button -->
+	<div class="flex w-14 shrink-0 items-center justify-center md:w-16">
+		{#if hasPrev}
+			<button
+				onclick={() => navigate(-1)}
+				class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-border bg-surface text-base text-text-dim transition-all hover:border-accent hover:text-accent"
+				aria-label="Previous slide"
 			>
-				{slide.label}
-			</span>
-		</a>
-	{/each}
-</nav>
+				←
+			</button>
+		{/if}
+	</div>
 
-<div class="fixed left-0 top-1/2 z-50 -translate-y-1/2 pl-4 md:pl-6">
-	<button
-		onclick={() => navigate(-1)}
-		disabled={!hasPrev}
-		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-border bg-surface text-lg text-text transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
-		aria-label="Previous slide"
-	>
-		←
-	</button>
+	<!-- Slide content -->
+	<main class="flex-1 overflow-y-auto">
+		{@render children()}
+	</main>
+
+	<!-- Right nav button + dots -->
+	<div class="flex w-14 shrink-0 flex-col items-center justify-center gap-6 md:w-16">
+		<!-- Nav dots (desktop only) -->
+		<nav class="hidden flex-col gap-2.5 md:flex">
+			{#each slides as slide}
+				<a
+					href={slide.path}
+					class="group relative block h-2 w-2 rounded-full transition-all duration-200 {page.url
+						.pathname === slide.path
+						? 'scale-125 bg-accent'
+						: 'bg-text-dim/40 hover:bg-text-dim'}"
+					aria-label={slide.label}
+				>
+					<span
+						class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-surface-2 px-2 py-1 font-mono text-[11px] text-text-dim opacity-0 transition-opacity group-hover:opacity-100"
+					>
+						{slide.label}
+					</span>
+				</a>
+			{/each}
+		</nav>
+
+		{#if hasNext}
+			<button
+				onclick={() => navigate(1)}
+				class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-border bg-surface text-base text-text-dim transition-all hover:border-accent hover:text-accent"
+				aria-label="Next slide"
+			>
+				→
+			</button>
+		{/if}
+
+		<!-- Slide counter (mobile only) -->
+		<span class="font-mono text-[10px] text-text-dim/50 md:hidden">
+			{currentIndex + 1}/{slides.length}
+		</span>
+	</div>
 </div>
-
-<div class="fixed right-0 top-1/2 z-50 -translate-y-1/2 pr-4 md:pr-6">
-	<button
-		onclick={() => navigate(1)}
-		disabled={!hasNext}
-		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-border bg-surface text-lg text-text transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
-		aria-label="Next slide"
-	>
-		→
-	</button>
-</div>
-
-<div class="fixed bottom-3 left-1/2 z-50 -translate-x-1/2 md:hidden">
-	<span class="font-mono text-[11px] text-text-dim/60">
-		{currentIndex + 1} / {slides.length}
-	</span>
-</div>
-
-{@render children()}
