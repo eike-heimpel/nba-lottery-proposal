@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-bg: #0a0a0f;
+	--color-surface: #12121a;
+	--color-surface-2: #1a1a26;
+	--color-accent: #ff4d00;
+	--color-accent-glow: rgba(255, 77, 0, 0.15);
+	--color-warm: #c4b49a;
+	--color-warm-dim: #8a7e6d;
+	--color-text: #e8e6e1;
+	--color-text-dim: #8a8994;
+	--color-text-bright: #ffffff;
+	--color-border: rgba(255, 255, 255, 0.06);
+
+	--font-heading: 'Oswald', sans-serif;
+	--font-body: 'Source Serif 4', serif;
+	--font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+	html {
+		background-color: var(--color-bg);
+		color: var(--color-text);
+		font-family: var(--font-body);
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		min-height: 100dvh;
+	}
+}
+
+@layer components {
+	.section-label {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		letter-spacing: 4px;
+		text-transform: uppercase;
+		color: var(--color-accent);
+	}
+
+	.section-title {
+		font-family: var(--font-heading);
+		font-size: clamp(36px, 5vw, 64px);
+		font-weight: 700;
+		color: var(--color-text-bright);
+		line-height: 1.05;
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	.slide-number {
+		font-family: var(--font-mono);
+		font-size: 13px;
+		color: var(--color-text-dim);
+		letter-spacing: 2px;
+		position: absolute;
+		top: 24px;
+		right: 32px;
+	}
+}
