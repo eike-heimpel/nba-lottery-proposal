@@ -30,7 +30,7 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<nav class="fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-2.5 md:flex">
+<nav class="fixed right-20 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-2.5 md:flex">
 	{#each slides as slide}
 		<a
 			href={slide.path}
@@ -49,28 +49,32 @@
 	{/each}
 </nav>
 
-<div class="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-3 md:px-8">
+<div class="fixed left-0 top-1/2 z-50 -translate-y-1/2 pl-4 md:pl-6">
 	<button
 		onclick={() => navigate(-1)}
 		disabled={!hasPrev}
-		class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-border bg-surface/80 font-mono text-sm text-text-dim backdrop-blur-sm transition-opacity disabled:cursor-default disabled:opacity-0"
+		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-border bg-surface text-lg text-text transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
 		aria-label="Previous slide"
 	>
 		←
 	</button>
+</div>
 
-	<span class="font-mono text-[11px] text-text-dim/60 md:hidden">
-		{currentIndex + 1} / {slides.length}
-	</span>
-
+<div class="fixed right-0 top-1/2 z-50 -translate-y-1/2 pr-4 md:pr-6">
 	<button
 		onclick={() => navigate(1)}
 		disabled={!hasNext}
-		class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-border bg-surface/80 font-mono text-sm text-text-dim backdrop-blur-sm transition-opacity disabled:cursor-default disabled:opacity-0"
+		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-border bg-surface text-lg text-text transition-all hover:border-accent hover:text-accent disabled:cursor-default disabled:opacity-0"
 		aria-label="Next slide"
 	>
 		→
 	</button>
+</div>
+
+<div class="fixed bottom-3 left-1/2 z-50 -translate-x-1/2 md:hidden">
+	<span class="font-mono text-[11px] text-text-dim/60">
+		{currentIndex + 1} / {slides.length}
+	</span>
 </div>
 
 {@render children()}
